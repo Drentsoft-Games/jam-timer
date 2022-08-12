@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dootdoot.mp3-d6ca7f6631853df552468d757ab2a586.mp3str"
+
+[deps]
+
+source_file="res://audio/alarms/dootdoot.mp3"
+dest_files=[ "res://.import/dootdoot.mp3-d6ca7f6631853df552468d757ab2a586.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
