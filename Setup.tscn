@@ -129,6 +129,12 @@ text = "Setup Timer"
 
 [node name="JamTimer" parent="." instance=ExtResource( 3 )]
 
+[node name="TimerLabel" parent="JamTimer/HBoxContainer" index="0"]
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+custom_constants/shadow_as_outline = 1
+
 [connection signal="pressed" from="Settings/3Hours" to="." method="_on_3Hours_pressed"]
 [connection signal="pressed" from="Settings/SetCustom" to="." method="_on_SetCustom_pressed"]
 [connection signal="item_selected" from="Settings/Alarm" to="." method="_on_Alarm_item_selected"]
