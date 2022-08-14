@@ -28,19 +28,22 @@ func _ready():
 	_on_3Hours_pressed()
 
 func load_alarms():
-	var dir = Directory.new()
-	var err = dir.open("res://audio/alarms/")
-	assert(err == OK)
-	dir.list_dir_begin(true, true)
-	var f = dir.get_next()
-	while f != "":
-		if f.ends_with(".import"):
-			f = dir.get_next()
-			continue
-		var alarm = load("%s/%s" % [dir.get_current_dir(), f])
-		alarms[f] = alarm
-		f = dir.get_next()
-	dir.list_dir_end()
+	alarms["alarm1.wav"] = load("res://audio/alarms/alarm1.wav")
+	alarms["alarme.ogg"] = load("res://audio/alarms/alarme.ogg")
+	alarms["dootdoot.mp3"] = load("res://audio/alarms/dootdoot.mp3")
+#	var dir = Directory.new()
+#	var err = dir.open("res://audio/alarms")
+#	assert(err == OK)
+#	dir.list_dir_begin(true, true)
+#	var f = dir.get_next()
+#	while f != "":
+#		if f.ends_with(".import"):
+#			f = dir.get_next()
+#			continue
+#		var alarm = load("%s/%s" % [dir.get_current_dir(), f])
+#		alarms[f] = alarm
+#		f = dir.get_next()
+	#dir.list_dir_end()
 	alarm_drop.add_item("No Alarm")
 	for alarm in alarms.keys():
 		alarm_drop.add_item(alarm)
