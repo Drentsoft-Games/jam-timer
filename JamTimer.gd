@@ -3,6 +3,7 @@
 
 extends Control
 
+signal time_adjusted
 signal timeout
 
 var time_left: float
@@ -20,6 +21,7 @@ onready var alarm = $TimeoutAlarm
 
 func _ready():
 	connect("timeout", self, "on_timeout")
+	connect("time_adjusted", self, "on_time_adjusted")
 	mute.visible = false
 	timer_label.text = get_time_left_text(time_left)
 
@@ -98,6 +100,9 @@ func on_timeout():
 	mute.visible = true
 	$TimeoutAlarm.play()
 
+func on_time_adjusted():
+	timer_label.text = get_time_left_text(time_left)
+
 func _on_TimeoutAlarm_finished():
 	if alarm_triggered and running:
 		alarm.play() # Just keep repeating
@@ -107,12 +112,13 @@ func check_mod_keys():
 	if Input.is_key_pressed(KEY_SHIFT):
 		amt = 10.0
 	if Input.is_key_pressed(KEY_CONTROL):
-		amt *= 5.0
+		amt *= 5.0 # Might be better at 6 to get full minute adjustments? Maybe 1, 5. 60 rather than 1, 10, 60?
 	return amt
 
 func _on_MinusTime_pressed():
 	var amt = check_mod_keys()
 	time_left -= amt
+	emit_signal("time_adjusted")
 	if time_left < 0.0 and running and !alarm_triggered:
 		emit_signal("timeout")
 	modified_time -= amt
@@ -120,6 +126,7 @@ func _on_MinusTime_pressed():
 func _on_PlusTime_pressed():
 	var amt = check_mod_keys()
 	time_left += amt
+	emit_signal("time_adjusted")
 	if time_left > 0.0 and alarm_triggered:
 		alarm_triggered = false
 		alarm.stop()
