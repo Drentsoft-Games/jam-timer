@@ -41,10 +41,16 @@ margin_right = 363.0
 margin_bottom = 100.0
 text = "TriJam (3 Hour)"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Settings"]
+[node name="24Hours" type="Button" parent="Settings"]
 margin_top = 120.0
 margin_right = 363.0
-margin_bottom = 151.0
+margin_bottom = 140.0
+text = "Weekend (48 Hour)"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings"]
+margin_top = 160.0
+margin_right = 363.0
+margin_bottom = 191.0
 alignment = 1
 
 [node name="Hours" type="SpinBox" parent="Settings/HBoxContainer"]
@@ -83,46 +89,46 @@ margin_right = 304.0
 margin_bottom = 31.0
 
 [node name="SetCustom" type="Button" parent="Settings"]
-margin_top = 171.0
+margin_top = 211.0
 margin_right = 363.0
-margin_bottom = 191.0
+margin_bottom = 231.0
 text = "Set Custom Time"
 
 [node name="TimerLabel" type="Label" parent="Settings"]
-margin_top = 211.0
+margin_top = 251.0
 margin_right = 363.0
-margin_bottom = 225.0
+margin_bottom = 265.0
 text = "00:00:00.000"
 align = 1
 
 [node name="Label2" type="Label" parent="Settings"]
-margin_top = 245.0
+margin_top = 285.0
 margin_right = 363.0
-margin_bottom = 259.0
+margin_bottom = 299.0
 text = "Alarm Sound"
 
 [node name="Alarm" type="OptionButton" parent="Settings"]
-margin_top = 279.0
-margin_right = 363.0
-margin_bottom = 299.0
-
-[node name="Preview" type="Button" parent="Settings"]
 margin_top = 319.0
 margin_right = 363.0
 margin_bottom = 339.0
+
+[node name="Preview" type="Button" parent="Settings"]
+margin_top = 359.0
+margin_right = 363.0
+margin_bottom = 379.0
 text = "Preview"
 
 [node name="TransparentBG" type="CheckBox" parent="Settings"]
-margin_top = 359.0
+margin_top = 399.0
 margin_right = 363.0
-margin_bottom = 383.0
+margin_bottom = 423.0
 pressed = true
 text = "Transparent Background"
 
 [node name="ShowTimer" type="Button" parent="Settings"]
-margin_top = 403.0
+margin_top = 443.0
 margin_right = 363.0
-margin_bottom = 423.0
+margin_bottom = 463.0
 text = "Setup Timer"
 
 [node name="AlarmPreview" type="AudioStreamPlayer" parent="."]
@@ -136,6 +142,7 @@ custom_constants/shadow_offset_y = 3
 custom_constants/shadow_as_outline = 1
 
 [connection signal="pressed" from="Settings/3Hours" to="." method="_on_3Hours_pressed"]
+[connection signal="pressed" from="Settings/24Hours" to="." method="_on_24Hours_pressed"]
 [connection signal="pressed" from="Settings/SetCustom" to="." method="_on_SetCustom_pressed"]
 [connection signal="item_selected" from="Settings/Alarm" to="." method="_on_Alarm_item_selected"]
 [connection signal="pressed" from="Settings/Preview" to="." method="_on_Preview_pressed"]
