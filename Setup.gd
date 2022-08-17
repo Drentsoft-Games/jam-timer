@@ -34,7 +34,10 @@ func load_alarms():
 	alarms["alarme.ogg"] = load("res://audio/alarms/alarme.ogg")
 	alarms["dootdoot.mp3"] = load("res://audio/alarms/dootdoot.mp3")
 	#load_alarms_from_folder("res://audio/alarms")
-	load_alarms_from_folder("./") # Allow for custom audio if put in the folder with the 
+	load_alarms_from_folder("./") # Allow for custom audio if put in the folder with the timer app/game.
+	update_alarm_dropdown()
+
+func update_alarm_dropdown():
 	alarm_drop.add_item("No Alarm")
 	for alarm in alarms.keys():
 		alarm_drop.add_item(alarm)
