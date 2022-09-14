@@ -12,6 +12,13 @@ Stop returns to the setup menu. You need to reset the time using the preset or S
 
 The timer has offset buttons to add/remove time in case of accidental stops/starts.
 
+Plus button will add 1 second.
+- Using Ctrl with the plus button will add 5 seconds.
+- Using Shift with the plus button will add 10 seconds.
+- Using Ctrl+Shift will add 50 seconds.
+
+Minus button will remove time in the same increments as above.
+
 # Credits
 ## Icons
 Kennet Asset Pack 1 - CC0 Licensed
