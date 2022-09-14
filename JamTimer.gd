@@ -28,6 +28,7 @@ func _ready():
 func set_time_left(time: float):
 	time_left = time
 	timer_label.text = get_time_left_text(time_left)
+	timer_label.hint_tooltip = "Starting Time: %s" % get_time_left_text(time_left)
 	print_debug("Time left set to %s" % time)
 
 func get_time_left_text(time, show_millis: bool = false) -> String:

@@ -39,12 +39,14 @@ align = 1
 margin_top = 80.0
 margin_right = 363.0
 margin_bottom = 100.0
+hint_tooltip = "Sets the timer to a 3 hour preset."
 text = "TriJam (3 Hour)"
 
 [node name="24Hours" type="Button" parent="Settings"]
 margin_top = 120.0
 margin_right = 363.0
 margin_bottom = 140.0
+hint_tooltip = "Sets the timer to a 48 hour preset."
 text = "Weekend (48 Hour)"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Settings"]
@@ -57,6 +59,7 @@ alignment = 1
 margin_left = 58.0
 margin_right = 132.0
 margin_bottom = 31.0
+hint_tooltip = "Hours for custom time."
 
 [node name="Label" type="Label" parent="Settings/HBoxContainer"]
 margin_left = 136.0
@@ -72,6 +75,7 @@ valign = 3
 margin_left = 144.0
 margin_right = 218.0
 margin_bottom = 31.0
+hint_tooltip = "Minutes for custom time."
 
 [node name="Label2" type="Label" parent="Settings/HBoxContainer"]
 margin_left = 222.0
@@ -87,17 +91,21 @@ valign = 3
 margin_left = 230.0
 margin_right = 304.0
 margin_bottom = 31.0
+hint_tooltip = "Seconds for custom time."
 
 [node name="SetCustom" type="Button" parent="Settings"]
 margin_top = 211.0
 margin_right = 363.0
 margin_bottom = 231.0
+hint_tooltip = "Sets the timer time from the time fields above."
 text = "Set Custom Time"
 
 [node name="TimerLabel" type="Label" parent="Settings"]
 margin_top = 251.0
 margin_right = 363.0
 margin_bottom = 265.0
+hint_tooltip = "Preview time for the timer."
+mouse_filter = 1
 text = "00:00:00.000"
 align = 1
 
@@ -111,17 +119,21 @@ text = "Alarm Sound"
 margin_top = 319.0
 margin_right = 363.0
 margin_bottom = 339.0
+hint_tooltip = "Choose a sound for the alarm.
+Any audio files in the same folder as the timer will be loaded at startup for custom alarms."
 
 [node name="Preview" type="Button" parent="Settings"]
 margin_top = 359.0
 margin_right = 363.0
 margin_bottom = 379.0
+hint_tooltip = "Plays a preview of the selected alarm sound."
 text = "Preview"
 
 [node name="TransparentBG" type="CheckBox" parent="Settings"]
 margin_top = 399.0
 margin_right = 363.0
 margin_bottom = 423.0
+hint_tooltip = "Toggle transparent background for video overlays."
 pressed = true
 text = "Transparent Background"
 
@@ -129,6 +141,7 @@ text = "Transparent Background"
 margin_top = 443.0
 margin_right = 363.0
 margin_bottom = 463.0
+hint_tooltip = "Finish setup and load the timer."
 text = "Setup Timer"
 
 [node name="AlarmPreview" type="AudioStreamPlayer" parent="."]
@@ -136,10 +149,33 @@ text = "Setup Timer"
 [node name="JamTimer" parent="." instance=ExtResource( 3 )]
 
 [node name="TimerLabel" parent="JamTimer/HBoxContainer" index="0"]
+mouse_filter = 1
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
 custom_constants/shadow_as_outline = 1
+
+[node name="StartPause" parent="JamTimer/HBoxContainer/Controls" index="0"]
+hint_tooltip = "Starts and pauses the timer."
+
+[node name="Mute" parent="JamTimer/HBoxContainer/Controls" index="1"]
+hint_tooltip = "Mutes the alarm without pausing the timer."
+
+[node name="MinusTime" parent="JamTimer/HBoxContainer/Controls" index="3"]
+hint_tooltip = "Subtracts 1 second from the timer.
+Ctrl - Subtract 5 seconds
+Shift - Subract 10 seconds
+Ctrl + Shift - Subtract 50 seconds"
+
+[node name="PlusTime" parent="JamTimer/HBoxContainer/Controls" index="5"]
+hint_tooltip = "Adds 1 second to the timer.
+Ctrl - Add 5 seconds
+Shift - Add 10 seconds
+Ctrl + Shift - Add 50 seconds
+"
+
+[node name="Stop" parent="JamTimer/HBoxContainer/Controls" index="7"]
+hint_tooltip = "Stops the timer and returns to the setup menu. The timer will remain in its current state unless you change the time during setup.."
 
 [connection signal="pressed" from="Settings/3Hours" to="." method="_on_3Hours_pressed"]
 [connection signal="pressed" from="Settings/24Hours" to="." method="_on_24Hours_pressed"]
