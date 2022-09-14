@@ -11,8 +11,10 @@ config_version=4
 [application]
 
 config/name="Jam Timer"
+config/description="Jam timer is a tool for streamers/content creators to use to help time their game jam submissions. Originally created for TriJam #181."
 run/main_scene="res://Setup.tscn"
-config/icon="res://icon.png"
+config/icon="res://Alarm-Clock.svg"
+config/windows_native_icon="res://jamTimer.ico"
 
 [display]
 

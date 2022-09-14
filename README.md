@@ -22,6 +22,7 @@ Minus button will remove time in the same increments as above.
 # Credits
 ## Icons
 Kennet Asset Pack 1 - CC0 Licensed
+https://openclipart.org/detail/204661/alarm-clock - Public Domain
 
 ## Fonts
 Kenney Blocks - CC0 Licensed
